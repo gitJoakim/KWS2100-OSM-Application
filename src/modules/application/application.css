@@ -1,0 +1,243 @@
+/* Main components, start*/
+* {
+  margin: unset;
+  font-family: sans-serif;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100dvh;
+  background-color: #1b2027;
+  color: #eeeeee;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 2.5fr 9.5fr;
+  background-color: #1b2027;
+}
+
+/* main layout for smaller screens*/
+@media (width <= 1500px) {
+  main {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+  }
+}
+@media (width <= 1200px) {
+  main {
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+  }
+}
+
+/* widen it out in case screen is very short in height*/
+@media (height <= 850px) {
+  main {
+    display: grid;
+    grid-template-columns: 5.5fr 6.5fr;
+  }
+}
+
+/* Sidebar left side*/
+.sidebar {
+  display: grid;
+  grid-template-rows: auto auto 1fr 1fr;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 16px 0px 16px;
+  row-gap: 12px;
+}
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1em;
+  padding: 8px;
+  background-color: #31363f;
+  border-radius: 10px;
+}
+nav > * {
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.map {
+  border-radius: 12px;
+  margin: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Main components, end*/
+
+/* color info and data display (left aside Sidebar) */
+.color-info-card {
+  background-color: #31363f;
+  margin: 16px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  font-size: 16px;
+  height: auto;
+  padding-left: 5%;
+  text-align: center;
+}
+.color-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.color-row > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.display-point-card {
+  background-color: #31363f;
+  margin: 16px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.end-of-line {
+  float: right;
+}
+
+/* Right side aside */
+.volcano-aside {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-top: 16px;
+  border-radius: 12px;
+  background-color: #31363f;
+  height: 35vh;
+  max-width: 15vw;
+  overflow-y: scroll;
+  display: none;
+  z-index: 1;
+}
+
+.volcano-aside.visible {
+  display: block;
+}
+
+.volcano-aside li,
+.earthquake-aside li {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.volcano-aside li:hover,
+.earthquake-aside li:hover {
+  text-decoration: underline;
+}
+
+.volc-aside-back-btn.visible {
+  display: block;
+}
+.volc-aside-back-btn.hidden {
+  display: none;
+}
+
+.volc-aside-back-btn {
+  border-radius: 8px;
+  margin: 8px;
+  padding: 6px;
+  font-family: sans-serif;
+  color: #31363f;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.aside-top {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.earthquake-aside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 16px;
+  border-radius: 12px;
+  background-color: #31363f;
+  height: 35vh;
+  max-width: 15vw;
+  overflow-y: scroll;
+  display: none;
+  z-index: 1;
+}
+
+.earthquake-aside.visible {
+  display: block;
+}
+
+/* scrollbar styling for fun (think this only works in chrome and safari) */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1b2027;
+  /* color of the track */
+  border-radius: 0px 8px 8px 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1b2027;
+  border: 2px solid white;
+  border-radius: 6px;
+}
+
+/* Drawing panel */
+.drawing-panel {
+  padding: 12px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: #1b2027;
+  background-color: #1b2027;
+  z-index: 99;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 12px;
+  left: 50%; /* Set left to 50% */
+  transform: translateX(-50%); /* Translate back by -50% of its own width */
+}
+
+.drawing-panel > * {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
