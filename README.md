@@ -29,3 +29,7 @@ The application uses OpenLayers for the map functionality and is built with Reac
 #### Tile Layers
 
 - The base tilelayer is pulled from ArcGIS, its called "World Imagery". I have put OSM as a choice in a dropdown menu, but it should also work as a backup automatically if the program can't fetch the photo layer on launch. If you experience any issues please swap to the OSM layer.
+
+#### Drawing Layer and functionality
+
+- The drawing layer and its functionality were implemented in a bit of a rush due to time constraints and a severe lack of sleep 🙃. As a result, the implementation isn’t the cleanest and relies on basic alerts for interaction, which I definitely wouldn’t recommend for a more polished version. It’s functional for now, but certainly not the most elegant solution!
